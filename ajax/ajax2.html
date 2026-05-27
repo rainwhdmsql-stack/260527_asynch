@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const xhr = new XMLHttpRequest();
+      console.log(xhr);
+      xhr.open("GET", "data2.jason", true);
+      xhr.onload = function () {
+        // console.log(xhr)
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+          console.log(data);
+          document.write(`<h2>데이터 :${data.little}</h2>`);
+          document.write(`<img src="${data.img}" alt="${data.img}">`);
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
